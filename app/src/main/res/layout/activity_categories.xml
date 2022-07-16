@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CategoriesActivity">
+
+    <HorizontalScrollView
+        android:id="@+id/r9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/meats_category"
+                android:layout_width="100dp"
+                android:layout_height="90dp"
+                android:src="@drawable/meat"/>
+
+            <ImageView
+                android:id="@+id/fish_category"
+                android:layout_width="100dp"
+                android:layout_height="90dp"
+                android:layout_toRightOf="@+id/meats_category"
+                android:src="@drawable/fish"/>
+
+            <ImageView
+                android:id="@+id/dairy_category"
+                android:layout_width="100dp"
+                android:layout_height="90dp"
+                android:src="@drawable/dairy"/>
+
+            <ImageView
+                android:id="@+id/vegies_category"
+                android:layout_width="100dp"
+                android:layout_height="90dp"
+                android:src="@drawable/vegies"/>
+
+            <ImageView
+                android:id="@+id/fruits_category"
+                android:layout_width="100dp"
+                android:layout_height="90dp"
+                android:src="@drawable/fruits"/>
+
+            <ImageView
+                android:id="@+id/bread_category"
+                android:layout_width="100dp"
+                android:layout_height="90dp"
+                android:layout_toRightOf="@+id/meats_category"
+                android:src="@drawable/bread"/>
+
+            <ImageView
+                android:id="@+id/cables_category"
+                android:layout_width="100dp"
+                android:layout_height="90dp"
+                android:src="@drawable/shoess"/>
+
+            <ImageView
+                android:id="@+id/consoles_category"
+                android:layout_width="100dp"
+                android:layout_height="90dp"
+                android:src="@drawable/glasses"/>
+
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/category_products_checklist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/r9"
+        >
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>

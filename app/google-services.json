@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "541534097809",
+    "firebase_url": "https://caloriesapp-823fd-default-rtdb.firebaseio.com",
+    "project_id": "caloriesapp-823fd",
+    "storage_bucket": "caloriesapp-823fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:541534097809:android:73c19a80e1ad9cc7ca4a30",
+        "android_client_info": {
+          "package_name": "com.example.caloriesapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "541534097809-h9rc2gaplkg2ppjlpf0auvmtk4gfe9od.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.caloriesapp",
+            "certificate_hash": "51101d70c71b851cb2b7098da65b0cbb4e83d11b"
+          }
+        },
+        {
+          "client_id": "541534097809-1rulvbmt7nurijeuspj8ipltcg7l7nkp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCngg8hfDsCv-alDbBtAIv5nHZ85CBGOng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "541534097809-1rulvbmt7nurijeuspj8ipltcg7l7nkp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

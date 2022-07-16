@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PostActivity">
+
+    <ImageButton
+        android:id="@+id/select_post_image"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="310dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ic_menu_gallery"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/post_description"
+        android:layout_width="363dp"
+        android:layout_height="57dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="503dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="169dp"
+        android:background="@drawable/input_design"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="write something about your post here"
+        android:inputType="textMultiLine"
+        android:padding="15dp"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/uploadpost_btn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="624dp"
+        android:layout_marginEnd="109dp"
+        android:layout_marginBottom="49dp"
+        android:background="@color/purple_500"
+        android:padding="10dp"
+        android:text="Upload Post"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+</RelativeLayout>

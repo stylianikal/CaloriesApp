@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DisplayAllPostActivity">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/all_users_post_list"
+        android:layout_width="match_parent"
+        android:layout_height="675dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-2dp" />
+
+    <android.widget.Toolbar
+        android:id="@+id/toolbar_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+
+        tools:ignore="MissingClass" />
+
+    <ImageButton
+        android:id="@+id/Open_add_new_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="176dp"
+        android:layout_marginEnd="179dp"
+        app:srcCompat="@android:drawable/ic_menu_add"
+        tools:ignore="SpeakableTextPresentCheck" />
+</RelativeLayout>
