@@ -35,7 +35,7 @@ public class DisplayAllPostActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_all_post);
-
+        imageview = (ImageView) findViewById(R.id.post_image);
         postRef = FirebaseDatabase.getInstance().getReference().child("Posts");
         userRef = FirebaseDatabase.getInstance().getReference().child("Users");
         mtoolbar = (Toolbar) findViewById(R.id.toolbar_post);
@@ -82,7 +82,8 @@ public class DisplayAllPostActivity extends AppCompatActivity {
                 //postsViewHolder.setPostImage(getApplicationContext(), posts.getPostimage());
 
                  //postsViewHolder.setPostImage(posts.getPostimage());
-                //Picasso.get().load(posts.getPostimage()).into(postsViewHolder.setPostImage(posts.getPostimage()));
+                //Picasso.get().load(model.getImage()).into(holder.imageView);
+                Picasso.get().load(posts.getPostimage()).into(postsViewHolder.setPostImage(posts.getPostimage()));
                 Picasso.get().load(posts.getProfileimage()).into(postsViewHolder.setProfileImage(posts.getProfileimage()));
                 postsViewHolder.setPostImage(posts.getPostimage());
                 postsViewHolder.setProfileImage(posts.getProfileimage());
@@ -113,17 +114,17 @@ public class DisplayAllPostActivity extends AppCompatActivity {
             TextView post_description = (TextView) mview.findViewById(R.id.post_description);
             post_description.setText(description);
         }
-        public void setPostImage(String postimage){
-            ImageView postImage = (ImageView) mview.findViewById(R.id.post_image);
-            Picasso.get().load(postimage).into(postImage);
-
+        public ImageView setPostImage(String postpostimage){
+            ImageView postpostImage = (ImageView) mview.findViewById(R.id.post_image);
+            Picasso.get().load(postpostimage).into(postpostImage);
+            return(postpostImage);
 
             //Picasso.get().load(postimage).into(postImage);
             //Picasso.get().load(posts.getPostimage()).into(postsViewHolder.)
         }
-        public ImageView setProfileImage(String profileimage){
+        public ImageView setProfileImage(String postprofileimage){
             ImageView profileImage = (ImageView) mview.findViewById(R.id.post_profile_image);
-            //Picasso.get().load(profileimage).into(profileImage);
+            Picasso.get().load(postprofileimage).into(profileImage);
             return profileImage;
             //Picasso.get().load(postimage).into(postImage);
             //Picasso.get().load(posts.getPostimage()).into(postsViewHolder.)

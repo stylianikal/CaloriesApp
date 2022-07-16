@@ -113,7 +113,10 @@ public class PostActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                 if (task.isSuccessful()){
-                    downloadurl = task.getResult().getUploadSessionUri().toString();
+                    downloadurl = imageUri.toString();
+                            //filepath.getDownloadUrl().toString();
+                    //task.getResult().getUploadSessionUri().toString();
+
                     Toast.makeText(PostActivity.this, "image uploaded successfully to storage", Toast.LENGTH_SHORT).show();
                     SavingPostInformation();
                 }
