@@ -164,11 +164,11 @@ public class SettinsActivity extends AppCompatActivity
         }
         else if (TextUtils.isEmpty(addressEditText.getText().toString()))
         {
-            Toast.makeText(this, "Name is address.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Andress is mandatory.", Toast.LENGTH_SHORT).show();
         }
         else if (TextUtils.isEmpty(userPhoneEditText.getText().toString()))
         {
-            Toast.makeText(this, "Name is mandatory.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "phone is mandatory.", Toast.LENGTH_SHORT).show();
         }
         else if(checker.equals("clicked"))
         {

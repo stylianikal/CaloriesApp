@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -79,15 +79,15 @@ public class DisplayAllPostActivity extends AppCompatActivity {
                 postsViewHolder.setTime(posts.getTime());
                 postsViewHolder.setDate(posts.getDate());
                 postsViewHolder.setDescription(posts.getDescription());
-                //postsViewHolder.setPostImage(getApplicationContext(), posts.postimage);
-               postsViewHolder.setPostImage(posts.getPostimage());
-                //Picasso.get().load(postsViewHolder.setPostImage(posts.getPostimage().into(postsViewHolder.setPostImage(posts.getPostimage()))));
+                //postsViewHolder.setPostImage(getApplicationContext(), posts.getPostimage());
 
-
+                 //postsViewHolder.setPostImage(posts.getPostimage());
+                //Picasso.get().load(posts.getPostimage()).into(postsViewHolder.setPostImage(posts.getPostimage()));
+                Picasso.get().load(posts.getProfileimage()).into(postsViewHolder.setProfileImage(posts.getProfileimage()));
+                postsViewHolder.setPostImage(posts.getPostimage());
+                postsViewHolder.setProfileImage(posts.getProfileimage());
             }
-
         };
-
         postList.setAdapter(adapter);
         adapter.startListening();
     }
@@ -103,11 +103,11 @@ public class DisplayAllPostActivity extends AppCompatActivity {
         }
         public void setTime(String time){
             TextView post_time = (TextView) mview.findViewById(R.id.post_time);
-            post_time.setText("     " +time);
+            post_time.setText("   " +time);
         }
         public void setDate(String date){
             TextView post_date = (TextView) mview.findViewById(R.id.post_date);
-            post_date.setText("    " + date);
+            post_date.setText("   " + date);
         }
         public void setDescription(String description){
             TextView post_description = (TextView) mview.findViewById(R.id.post_description);
@@ -116,6 +116,16 @@ public class DisplayAllPostActivity extends AppCompatActivity {
         public void setPostImage(String postimage){
             ImageView postImage = (ImageView) mview.findViewById(R.id.post_image);
             Picasso.get().load(postimage).into(postImage);
+
+
+            //Picasso.get().load(postimage).into(postImage);
+            //Picasso.get().load(posts.getPostimage()).into(postsViewHolder.)
+        }
+        public ImageView setProfileImage(String profileimage){
+            ImageView profileImage = (ImageView) mview.findViewById(R.id.post_profile_image);
+            //Picasso.get().load(profileimage).into(profileImage);
+            return profileImage;
+            //Picasso.get().load(postimage).into(postImage);
             //Picasso.get().load(posts.getPostimage()).into(postsViewHolder.)
         }
 

@@ -45,21 +45,17 @@ public class PostActivity extends AppCompatActivity {
 
     private static final int Gallery_Pick= 1;
     private Uri imageUri;
-
-    private Uri imageUri2;
-    private String myUrl = "";
-    private StorageReference storageProfilePrictureRef;
+    //private String myUrl = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
 
-        storageProfilePrictureRef = FirebaseStorage.getInstance().getReference();
         userRef = FirebaseDatabase.getInstance().getReference().child("Users");
         postRef = FirebaseDatabase.getInstance().getReference().child("Posts");
 
-        PostImagesReference = FirebaseStorage.getInstance().getReference();
+        PostImagesReference = FirebaseStorage.getInstance().getReference().child("Post Images");
 
         selectpostimage = (ImageButton) findViewById(R.id.select_post_image);
         updatepostbutton = (Button) findViewById(R.id.uploadpost_btn);
@@ -70,8 +66,6 @@ public class PostActivity extends AppCompatActivity {
         selectpostimage.setOnClickListener(v -> OpenGallery());
 
         updatepostbutton.setOnClickListener(v -> ValidatepostInfo());
-
-
 
     }
     //open phone gallery to pick a picture
@@ -114,12 +108,12 @@ public class PostActivity extends AppCompatActivity {
 
         postRandomname = saveCurrentDate+saveCurrentTime;
 
-        StorageReference filepath = PostImagesReference.child("Post Images").child(imageUri.getLastPathSegment() + postRandomname + ".jpg");
+        StorageReference filepath = PostImagesReference.child( postRandomname + ".jpg");
         filepath.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                 if (task.isSuccessful()){
-                    downloadurl = task.getResult().toString();
+                    downloadurl = task.getResult().getUploadSessionUri().toString();
                     Toast.makeText(PostActivity.this, "image uploaded successfully to storage", Toast.LENGTH_SHORT).show();
                     SavingPostInformation();
                 }
@@ -142,12 +136,7 @@ public class PostActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
                     String name = Prevalent.currentOnlineUser.getName().toString();
-//                    storageProfilePrictureRef.child("Profile pictures/" + phone + ".jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-//                        @Override
-//                        public void onSuccess(Uri uri) {
-//                            imageUri2 = uri;
-//                        }
-//                    });
+                    String userprofileimage = snapshot.child("image").getValue().toString();
 
                     HashMap postMap = new HashMap();
                         postMap.put("phone", phone);
@@ -155,7 +144,7 @@ public class PostActivity extends AppCompatActivity {
                         postMap.put("time", saveCurrentTime);
                         postMap.put("description", Description);
                         postMap.put("postimage",downloadurl);
-                        //postMap.put("profileimage",imageUri2.toString());
+                        postMap.put("profileimage",userprofileimage);
                         postMap.put("fullname", name);
 
                     postRef.child(phone + postRandomname).updateChildren(postMap).addOnCompleteListener(new OnCompleteListener() {

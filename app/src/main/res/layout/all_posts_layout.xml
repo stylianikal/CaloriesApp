@@ -91,14 +91,15 @@
             android:textColor="@color/black"
 
             />
+
         <ImageView
             android:id="@+id/post_image"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_margin="3dp"
             android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            />
+            android:scaleType="fitStart"
+            android:src="@drawable/ic_menu_gallery" />
 
 
         </LinearLayout>
