@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.caloriesapp.Prevalent.Prevalent;
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -25,6 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
@@ -36,16 +38,18 @@ public class PostActivity extends AppCompatActivity {
     private Button updatepostbutton;
     private EditText postdescription;
     private String Description;
+    private StorageTask uploadTask;
     private ProgressDialog loadingbar;
 
     private StorageReference PostImagesReference;
     private DatabaseReference userRef, postRef;
 
-    private String saveCurrentDate, saveCurrentTime, postRandomname, downloadurl;
+    private String saveCurrentDate, saveCurrentTime, postRandomname;
+    //downloadurl;
 
     private static final int Gallery_Pick= 1;
     private Uri imageUri;
-    //private String myUrl = "";
+    private String myUrl = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,17 +113,43 @@ public class PostActivity extends AppCompatActivity {
         postRandomname = saveCurrentDate+saveCurrentTime;
 
         StorageReference filepath = PostImagesReference.child( postRandomname + ".jpg");
-        filepath.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+        uploadTask = filepath.putFile(imageUri);
+        uploadTask.continueWithTask(new Continuation() {
             @Override
-            public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+            public Object then(@NonNull Task task) throws Exception {
+                if (!task.isSuccessful()){
+                    throw task.getException();
+                }
+                return filepath.getDownloadUrl();
+            }
+        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+            @Override
+            public void onComplete(@NonNull Task<Uri> task) {
                 if (task.isSuccessful()){
-                    downloadurl = imageUri.toString();
-                            //filepath.getDownloadUrl().toString();
-                    //task.getResult().getUploadSessionUri().toString();
+                    Uri downloadurl = task.getResult();
+                    myUrl = downloadurl.toString();
+
+
+
+//        filepath.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+//                if (task.isSuccessful()){
+//                    downloadurl = imageUri.toString();
+                            //task.getResult().getUploadSessionUri().toString();
+                            //getResult().getMetadata().getReference().getDownloadUrl().toString();
+                            //task.getResult().getStorage().getDownloadUrl().toString();
+                //getUploadSessionUri().toString();
+                            //imageUri.toString();
+                    //downloadurl =filepath.getDownloadUrl().toString();
+                    //downloadurl= filepath.getDownloadUrl().toString();
+
+                    //task.getResult().getMetadata().getReference().getDownloadUrl().toString();
+
+                            //().getUploadSessionUri().toString();
 
                     Toast.makeText(PostActivity.this, "image uploaded successfully to storage", Toast.LENGTH_SHORT).show();
-                    SavingPostInformation();
-                }
+                    SavingPostInformation();}
                 else
                 {
                     String messaage= task.getException().getMessage();
@@ -131,6 +161,7 @@ public class PostActivity extends AppCompatActivity {
 
 
     }
+
     private void SavingPostInformation(){
         String phone = Prevalent.currentOnlineUser.getPhone();
 
@@ -146,7 +177,7 @@ public class PostActivity extends AppCompatActivity {
                         postMap.put("date", saveCurrentDate);
                         postMap.put("time", saveCurrentTime);
                         postMap.put("description", Description);
-                        postMap.put("postimage",downloadurl);
+                        postMap.put("postimage",myUrl);
                         postMap.put("profileimage",userprofileimage);
                         postMap.put("fullname", name);
 

@@ -117,7 +117,7 @@ public class DisplayAllPostActivity extends AppCompatActivity {
         public ImageView setPostImage(String postpostimage){
             ImageView postpostImage = (ImageView) mview.findViewById(R.id.post_image);
             Picasso.get().load(postpostimage).into(postpostImage);
-            return(postpostImage);
+            return postpostImage;
 
             //Picasso.get().load(postimage).into(postImage);
             //Picasso.get().load(posts.getPostimage()).into(postsViewHolder.)
