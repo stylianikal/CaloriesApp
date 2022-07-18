@@ -4,19 +4,21 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Styliani/Downloads/CaloriesApp/CaloriesApp/CaloriesApp/app/src/main/res/layout/activity_admin_add_new_product.xml" value="0.35052083333333334" />
-        <entry key="..\:/Users/Styliani/Downloads/CaloriesApp/CaloriesApp/CaloriesApp/app/src/main/res/layout/activity_admin_category.xml" value="0.35052083333333334" />
+        <entry key="..\:/Users/Styliani/Downloads/CaloriesApp/CaloriesApp/CaloriesApp/app/src/main/res/layout/activity_admin_category.xml" value="0.23765281173594133" />
         <entry key="..\:/Users/Styliani/Downloads/CaloriesApp/CaloriesApp/CaloriesApp/app/src/main/res/layout/activity_admin_maintain_products.xml" value="0.35052083333333334" />
         <entry key="..\:/Users/Styliani/Downloads/CaloriesApp/CaloriesApp/CaloriesApp/app/src/main/res/layout/activity_admin_new_orders.xml" value="0.35052083333333334" />
+        <entry key="..\:/Users/Styliani/Downloads/CaloriesApp/CaloriesApp/CaloriesApp/app/src/main/res/layout/activity_admin_new_plans.xml" value="0.2877297990594271" />
         <entry key="..\:/Users/Styliani/Downloads/CaloriesApp/CaloriesApp/CaloriesApp/app/src/main/res/layout/activity_admin_user_products.xml" value="0.35052083333333334" />
         <entry key="..\:/Users/Styliani/Downloads/CaloriesApp/CaloriesApp/CaloriesApp/app/src/main/res/layout/activity_bmi.xml" value="0.35052083333333334" />
         <entry key="..\:/Users/Styliani/Downloads/CaloriesApp/CaloriesApp/CaloriesApp/app/src/main/res/layout/activity_bmr.xml" value="0.33" />
         <entry key="..\:/Users/Styliani/Downloads/CaloriesApp/CaloriesApp/CaloriesApp/app/src/main/res/layout/activity_cart.xml" value="0.35052083333333334" />
         <entry key="..\:/Users/Styliani/Downloads/CaloriesApp/CaloriesApp/CaloriesApp/app/src/main/res/layout/activity_categories.xml" value="0.1702127659574468" />
         <entry key="..\:/Users/Styliani/Downloads/CaloriesApp/CaloriesApp/CaloriesApp/app/src/main/res/layout/activity_confirm_final_order.xml" value="0.35052083333333334" />
+        <entry key="..\:/Users/Styliani/Downloads/CaloriesApp/CaloriesApp/CaloriesApp/app/src/main/res/layout/activity_confirm_final_plan.xml" value="0.14061847053907228" />
         <entry key="..\:/Users/Styliani/Downloads/CaloriesApp/CaloriesApp/CaloriesApp/app/src/main/res/layout/activity_display_all_post.xml" value="0.35052083333333334" />
         <entry key="..\:/Users/Styliani/Downloads/CaloriesApp/CaloriesApp/CaloriesApp/app/src/main/res/layout/activity_home.xml" value="0.35052083333333334" />
         <entry key="..\:/Users/Styliani/Downloads/CaloriesApp/CaloriesApp/CaloriesApp/app/src/main/res/layout/activity_login.xml" value="0.35052083333333334" />
-        <entry key="..\:/Users/Styliani/Downloads/CaloriesApp/CaloriesApp/CaloriesApp/app/src/main/res/layout/activity_main.xml" value="0.35052083333333334" />
+        <entry key="..\:/Users/Styliani/Downloads/CaloriesApp/CaloriesApp/CaloriesApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Styliani/Downloads/CaloriesApp/CaloriesApp/CaloriesApp/app/src/main/res/layout/activity_post.xml" value="0.35052083333333334" />
         <entry key="..\:/Users/Styliani/Downloads/CaloriesApp/CaloriesApp/CaloriesApp/app/src/main/res/layout/activity_product_details.xml" value="0.35052083333333334" />
         <entry key="..\:/Users/Styliani/Downloads/CaloriesApp/CaloriesApp/CaloriesApp/app/src/main/res/layout/activity_register.xml" value="0.35052083333333334" />

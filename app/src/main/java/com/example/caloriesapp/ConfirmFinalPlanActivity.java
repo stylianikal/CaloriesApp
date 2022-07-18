@@ -21,28 +21,27 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
-public class ConfirmFinalOrderActivity extends AppCompatActivity {
+public class ConfirmFinalPlanActivity extends AppCompatActivity {
 
-    private EditText nameEditText, phoneEditText, addressEditText, cityEditText;
-    private Button confirmOrderBtn;
+    private EditText nameEditText, phoneEditText, EmailEditText;
+    private Button confirmPlanBtn;
 
     private String totalCalories = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_confirm_final_order);
+        setContentView(R.layout.activity_confirm_final_plan);
 
         totalCalories = getIntent().getStringExtra("Total Calories");
         Toast.makeText(this, "Total Calories = Cal. " + totalCalories, Toast.LENGTH_SHORT).show();
 
-        confirmOrderBtn = (Button) findViewById(R.id.confirm_final_order_btn);
-        nameEditText = (EditText) findViewById(R.id.shippment_name);
-        phoneEditText = (EditText) findViewById(R.id.shippment_phone_number);
-        addressEditText = (EditText) findViewById(R.id.shippment_address);
-        cityEditText = (EditText) findViewById(R.id.shippment_city);
+        confirmPlanBtn = (Button) findViewById(R.id.confirm_final_plan_btn);
+        nameEditText = (EditText) findViewById(R.id.conplan_name);
+        phoneEditText = (EditText) findViewById(R.id.conplan_phone);
+        EmailEditText = (EditText) findViewById(R.id.conplan_email);
 
-        confirmOrderBtn.setOnClickListener(new View.OnClickListener() {
+        confirmPlanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
@@ -61,21 +60,18 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "Please provide your phone", Toast.LENGTH_SHORT).show();
         }
-        else if (TextUtils.isEmpty(addressEditText.getText().toString()))
+        else if (TextUtils.isEmpty(EmailEditText.getText().toString()))
         {
-            Toast.makeText(this, "Please provide your address", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please provide your email", Toast.LENGTH_SHORT).show();
         }
-        else if (TextUtils.isEmpty(cityEditText.getText().toString()))
-        {
-            Toast.makeText(this, "Please provide your city", Toast.LENGTH_SHORT).show();
-        }
+
         else
         {
-         ConfirmOrder();
+         DailyPlanConfirm();
         }
     }
 
-    private void ConfirmOrder()
+    private void DailyPlanConfirm()
     {
         final String saveCurrentDate, saveCurrentTime;
 
@@ -87,18 +83,17 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         saveCurrentTime = currentTime.format(calForDate.getTime());
 
         final DatabaseReference ordersRef = FirebaseDatabase.getInstance().getReference()
-                .child("Orders")
+                .child("Plans")
                 .child(Prevalent.currentOnlineUser.getPhone());
 
         HashMap<String, Object> ordersMap = new HashMap<>();
         ordersMap.put("totalCalories", totalCalories);
         ordersMap.put("name", nameEditText.getText().toString());
         ordersMap.put("phone", phoneEditText.getText().toString());
-        ordersMap.put("address", addressEditText.getText().toString());
-        ordersMap.put("city", cityEditText.getText().toString());
+        ordersMap.put("email", EmailEditText.getText().toString());
         ordersMap.put("date", saveCurrentDate);
         ordersMap.put("time", saveCurrentTime);
-        ordersMap.put("state", "no");
+
 
         ordersRef.updateChildren(ordersMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -117,9 +112,9 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
                                 {
                                     if (task.isSuccessful())
                                     {
-                                        Toast.makeText(ConfirmFinalOrderActivity.this, "your daily calculation saved successfully", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(ConfirmFinalPlanActivity.this, "your daily calculation saved successfully", Toast.LENGTH_SHORT).show();
 
-                                        Intent intent = new Intent(ConfirmFinalOrderActivity.this, HomeActivity.class);
+                                        Intent intent = new Intent(ConfirmFinalPlanActivity.this, HomeActivity.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                         startActivity(intent);
                                         finish();

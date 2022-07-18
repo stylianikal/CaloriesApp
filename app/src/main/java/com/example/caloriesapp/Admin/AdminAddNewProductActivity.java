@@ -133,7 +133,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
         saveCurrentTime = currentTime.format(calendar.getTime());
         productRandomKey = saveCurrentDate + saveCurrentTime;
 
-        final StorageReference filePath = ProductImagesRef.child(ImageUri.getLastPathSegment() + productRandomKey + ".jpg");
+        final StorageReference filePath = ProductImagesRef.child(productRandomKey + ".jpg");
         final UploadTask uploadTask = filePath.putFile(ImageUri);
 
         uploadTask.addOnFailureListener(new OnFailureListener() {

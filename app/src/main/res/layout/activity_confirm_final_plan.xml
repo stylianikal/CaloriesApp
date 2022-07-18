@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConfirmFinalOrderActivity">
+    tools:context=".ConfirmFinalPlanActivity">
 
     <TextView
         android:id="@+id/txt"
@@ -15,14 +15,14 @@
         android:layout_marginTop="25dp"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="25dp"
-        android:text="Please write your details about your daily calculation"
+        android:text="Please write your details about your daily plan"
         android:textAlignment="center"
         android:textColor="@color/purple_500"
         android:textSize="10dp"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/shippment_name"
+        android:id="@+id/conplan_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt"
@@ -33,10 +33,10 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/shippment_phone_number"
+        android:id="@+id/conplan_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/shippment_name"
+        android:layout_below="@+id/conplan_name"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="20dp"
@@ -45,29 +45,18 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/shippment_address"
+        android:id="@+id/conplan_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/shippment_phone_number"
+        android:layout_below="@+id/conplan_phone"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="20dp"
-        android:hint="your Home Address"
-        tools:ignore="TouchTargetSizeCheck" />
-
-    <EditText
-        android:id="@+id/shippment_city"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/shippment_address"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="20dp"
-        android:hint="your City"
+        android:hint="your Email"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
-        android:id="@+id/confirm_final_order_btn"
+        android:id="@+id/confirm_final_plan_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

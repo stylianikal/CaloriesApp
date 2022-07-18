@@ -32,8 +32,8 @@
         <activity android:name=".Admin.AdminMaintainProductsActivity" />
         <activity android:name=".SearchProductsActivity" />
         <activity android:name=".Admin.AdminUserProductsActivity" />
-        <activity android:name=".Admin.AdminNewOrdersActivity" />
-        <activity android:name=".ConfirmFinalOrderActivity" />
+        <activity android:name=".Admin.AdminNewPlans" />
+        <activity android:name=".ConfirmFinalPlanActivity" />
         <activity android:name=".CartActivity" />
         <activity android:name=".ProductDetailsActivity" />
         <activity android:name=".SettingsActivity" />

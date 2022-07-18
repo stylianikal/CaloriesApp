@@ -22,7 +22,7 @@ import com.squareup.picasso.Picasso;
 
 public class CategoriesActivity extends AppCompatActivity {
 
-    private ImageView meats, fish, dairy, vegies, fruits, bread, Cables, Consoles;
+    private ImageView meats, fish, dairy, vegies, fruits, bread, sweets;
 
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
@@ -40,8 +40,8 @@ public class CategoriesActivity extends AppCompatActivity {
         vegies = (ImageView) findViewById(R.id.vegies_category);
         fruits = (ImageView) findViewById(R.id.fruits_category);
         bread = (ImageView) findViewById(R.id.bread_category);
-        Cables = (ImageView) findViewById(R.id.cables_category);
-        Consoles = (ImageView) findViewById(R.id.consoles_category);
+        sweets = (ImageView) findViewById(R.id.sweets_category);
+
 
         unverifiedProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
@@ -274,13 +274,14 @@ public class CategoriesActivity extends AppCompatActivity {
 
         });
 
-        Cables.setOnClickListener(new View.OnClickListener() {
+
+        sweets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
                 FirebaseRecyclerOptions<Products> options =
                         new FirebaseRecyclerOptions.Builder<Products>()
-                                .setQuery(unverifiedProductsRef.orderByChild("category").equalTo("Cables"), Products.class).build();
+                                .setQuery(unverifiedProductsRef.orderByChild("category").equalTo("sweets"), Products.class).build();
 
                 FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter =
                         new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
@@ -289,9 +290,17 @@ public class CategoriesActivity extends AppCompatActivity {
                             {
                                 holder.txtProductName.setText(model.getPname());
                                 holder.txtProductDescription.setText(model.getDescription());
-                                holder.txtProductCalories.setText("Price = " + model.getCalories() + "Cal");
+                                holder.txtProductCalories.setText("Calories = " + model.getCalories() + "Cal");
                                 Picasso.get().load(model.getImage()).into(holder.imageView);
 
+                                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(CategoriesActivity.this, ProductDetailsActivity.class);
+                                        intent.putExtra("pid", model.getPid());
+                                        startActivity(intent);
+                                    }
+                                });
                             }
 
                             @NonNull
@@ -310,40 +319,5 @@ public class CategoriesActivity extends AppCompatActivity {
 
         });
 
-        Consoles.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                FirebaseRecyclerOptions<Products> options =
-                        new FirebaseRecyclerOptions.Builder<Products>()
-                                .setQuery(unverifiedProductsRef.orderByChild("category").equalTo("Consoles"), Products.class).build();
-
-                FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter =
-                        new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
-                            @Override
-                            protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull Products model)
-                            {
-                                holder.txtProductName.setText(model.getPname());
-                                holder.txtProductDescription.setText(model.getDescription());
-                                holder.txtProductCalories.setText("Price = " + model.getCalories() + "Cal");
-                                Picasso.get().load(model.getImage()).into(holder.imageView);
-
-                            }
-
-                            @NonNull
-                            @Override
-                            public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-                            {
-                                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_items_layout, parent, false);
-                                ProductViewHolder holder = new ProductViewHolder(view);
-                                return holder;
-                            }
-                        };
-
-                recyclerView.setAdapter(adapter);
-                adapter.startListening();
-            }
-
-        });
     }
 }

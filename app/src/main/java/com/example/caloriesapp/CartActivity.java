@@ -59,7 +59,7 @@ public class CartActivity extends AppCompatActivity {
             {
                 txtTotalAmount.setText("Total Calories = Cal" + String.valueOf(overTotalCalories));
 
-                Intent intent = new Intent(CartActivity.this, ConfirmFinalOrderActivity.class);
+                Intent intent = new Intent(CartActivity.this, ConfirmFinalPlanActivity.class);
                 intent.putExtra("Total Calories", String.valueOf(overTotalCalories));
                 startActivity(intent);
                 finish();

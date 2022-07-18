@@ -14,7 +14,7 @@ import com.example.caloriesapp.R;
 
 public class AdminCategoryActivity extends AppCompatActivity
 {
-    private ImageView meats, fish, dairy, vegies;
+    private ImageView meats, fish, dairy, vegies, sweets;
     private ImageView fruits, bread;
 
     private Button LogoutBtn, CheckOrdersBtn, maintainProductsBtn;
@@ -54,7 +54,7 @@ public class AdminCategoryActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                    Intent intent = new Intent(AdminCategoryActivity.this, AdminNewOrdersActivity.class);
+                    Intent intent = new Intent(AdminCategoryActivity.this, AdminNewPlans.class);
                 startActivity(intent);
             }
         });
@@ -67,7 +67,7 @@ public class AdminCategoryActivity extends AppCompatActivity
         fruits = (ImageView) findViewById(R.id.fruits);
 //        bread = (ImageView) findViewById(R.id.bread);
         bread = (ImageView) findViewById(R.id.bread);
-
+        sweets = (ImageView) findViewById(R.id.sweets);
 
 
         meats.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +76,15 @@ public class AdminCategoryActivity extends AppCompatActivity
             {
                 Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
                 intent.putExtra("category", "meat");
+                startActivity(intent);
+            }
+        });
+
+        sweets.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                intent.putExtra("category", "sweets");
                 startActivity(intent);
             }
         });

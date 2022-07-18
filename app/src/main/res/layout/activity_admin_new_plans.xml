@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin.AdminNewOrdersActivity">
+    tools:context=".Admin.AdminNewPlans">
 
     <RelativeLayout
         android:id="@+id/r2"
@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="New Orders"
+            android:text="New Plan"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="25dp" />
@@ -25,7 +25,7 @@
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/orders_list"
+        android:id="@+id/plans_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/r2">

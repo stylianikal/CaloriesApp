@@ -1,5 +1,6 @@
 package com.example.caloriesapp.Admin;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,27 +16,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.caloriesapp.Model.AdminOrders;
+import com.example.caloriesapp.Model.AdminPlans;
 import com.example.caloriesapp.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class AdminNewOrdersActivity extends AppCompatActivity
+public class AdminNewPlans extends AppCompatActivity
 {
-    private RecyclerView ordersList;
-    private DatabaseReference ordersRef;
+    private RecyclerView plansList;
+    private DatabaseReference plansRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_new_orders);
+        setContentView(R.layout.activity_admin_new_plans);
 
-        ordersRef = FirebaseDatabase.getInstance().getReference().child("Orders");
+        plansRef = FirebaseDatabase.getInstance().getReference().child("Plans");
 
-        ordersList = findViewById(R.id.orders_list);
-        ordersList.setLayoutManager(new LinearLayoutManager(this));
+        plansList = findViewById(R.id.plans_list);
+        plansList.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
@@ -43,29 +44,30 @@ public class AdminNewOrdersActivity extends AppCompatActivity
     {
         super.onStart();
 
-        FirebaseRecyclerOptions<AdminOrders> options =
-                new FirebaseRecyclerOptions.Builder<AdminOrders>()
-                .setQuery(ordersRef, AdminOrders.class)
+        FirebaseRecyclerOptions<AdminPlans> options =
+                new FirebaseRecyclerOptions.Builder<AdminPlans>()
+                .setQuery(plansRef, AdminPlans.class)
                 .build();
 
-        FirebaseRecyclerAdapter<AdminOrders, AdminOrderViewHolder> adapter =
-                new FirebaseRecyclerAdapter<AdminOrders, AdminOrderViewHolder>(options) {
+        FirebaseRecyclerAdapter<AdminPlans, AdminOrderViewHolder> adapter =
+                new FirebaseRecyclerAdapter<AdminPlans, AdminOrderViewHolder>(options) {
                     @Override
-                    protected void onBindViewHolder(@NonNull AdminOrderViewHolder holder,int position, @NonNull AdminOrders model)
+                    protected void onBindViewHolder(@NonNull AdminOrderViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull AdminPlans model)
                     {
                         holder.userName.setText("Name: " + model.getName());
                         holder.userPhoneNumber.setText("Phone: " + model.getPhone());
                         holder.userTotalCalories.setText("Total Calories= Cal" + model.getTotalAmount());
-                        holder.userDataTime.setText("Orders at: " + model.getDate() + "  " + model.getTime());
-                        holder.userShippingAddress.setText("Shipping address: " + model.getAddress() + "  " + model.getCity());
+                        holder.userDataTime.setText("Plan at: " + model.getDate() + "  " + model.getTime());
+                        holder.userEmailAddress.setText("Email: " + model.getEmail() );
 
-                        holder.ShowOrderBtn.setOnClickListener(new View.OnClickListener() {
+
+                        holder.ShowBtn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view)
                             {
                                 String uID = getRef(position).getKey();
 
-                                Intent intent = new Intent(AdminNewOrdersActivity.this, AdminUserProductsActivity.class);
+                                Intent intent = new Intent(AdminNewPlans.this, AdminUserProductsActivity.class);
                                 intent.putExtra("uid", uID);
                                 startActivity(intent);
                             }
@@ -81,7 +83,7 @@ public class AdminNewOrdersActivity extends AppCompatActivity
                                                 "No"
                                         };
 
-                                AlertDialog.Builder builder = new AlertDialog.Builder(AdminNewOrdersActivity.this);
+                                AlertDialog.Builder builder = new AlertDialog.Builder(AdminNewPlans.this);
                                 builder.setTitle("Have you seen this daily calculation?");
 
                                 builder.setItems(options, new DialogInterface.OnClickListener() {
@@ -113,32 +115,32 @@ public class AdminNewOrdersActivity extends AppCompatActivity
                         return new AdminOrderViewHolder(view);
                     }
                 };
-        ordersList.setAdapter(adapter);
+        plansList.setAdapter(adapter);
         adapter.startListening();
     }
 
 
     public static class AdminOrderViewHolder extends RecyclerView.ViewHolder
     {
-        public TextView userName, userPhoneNumber, userTotalCalories, userDataTime, userShippingAddress;
-        public Button ShowOrderBtn;
+        public TextView userName, userPhoneNumber, userTotalCalories, userDataTime, userEmailAddress;
+        public Button ShowBtn;
 
         public AdminOrderViewHolder(@NonNull View itemView)
         {
             super(itemView);
 
-            userName = itemView.findViewById(R.id.order_user_name);
-            userPhoneNumber = itemView.findViewById(R.id.order_phone_number);
-            userTotalCalories = itemView.findViewById(R.id.order_total_calories);
-            userDataTime = itemView.findViewById(R.id.order_date_time);
-            userShippingAddress = itemView.findViewById(R.id.order_address_city);
-            ShowOrderBtn = itemView.findViewById(R.id.show_all_products_btn);
+            userName = itemView.findViewById(R.id.plan_user_name);
+            userPhoneNumber = itemView.findViewById(R.id.plan_phone_number);
+            userTotalCalories = itemView.findViewById(R.id.plan_total_calories);
+            userDataTime = itemView.findViewById(R.id.plan_date_time);
+            userEmailAddress = itemView.findViewById(R.id.plan_email);
+            ShowBtn = itemView.findViewById(R.id.show_all_products_btn);
 
         }
     }
 
     private void RemoverOrder(String uID)
     {
-        ordersRef.child(uID).removeValue();
+        plansRef.child(uID).removeValue();
     }
 }
