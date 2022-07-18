@@ -11,6 +11,20 @@
     android:top="16dp">
 
     <TextView
+        android:id="@+id/textView2"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:fontFamily="monospace"
+        android:text="Find how many calories you must eat a day"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/purple_500"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/Weight_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,13 +37,15 @@
     <EditText
         android:id="@+id/weight"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
+        android:background="@drawable/input_design"
         android:ems="6"
-        android:hint="kg"
+        android:hint="  kg"
         android:inputType="number|numberDecimal"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/Height_TextView"
@@ -44,20 +60,22 @@
     <EditText
         android:id="@+id/height"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="38dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
+        android:background="@drawable/input_design"
         android:ems="6"
-        android:hint="cm"
+        android:hint="  cm"
         android:inputType="number|numberDecimal"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/Age_TextView"
-        android:layout_width="match_parent"
+        android:layout_width="375dp"
         android:layout_height="wrap_content"
-        android:text="Age"
         android:layout_marginTop="50dp"
+        android:text="Age"
 
         android:textAlignment="center"
         android:textSize="20sp" />
@@ -65,13 +83,15 @@
     <EditText
         android:id="@+id/age"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="38dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
+        android:background="@drawable/input_design"
         android:ems="6"
-        android:hint="years"
+        android:hint="  years"
         android:inputType="number|numberDecimal"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <CheckBox
         android:id="@+id/checkWoman"
@@ -79,16 +99,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
 
-        android:text="Check for woman" />
+        android:text="Check for woman"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/calc"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="25dp"
-        android:onClick="calculateBMI"
-        android:text="@string/calculateBMR" />
+        android:background="@drawable/buttons"
+        android:onClick="calculateBMR"
+        android:text="@string/calculateBMR"
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/result"
@@ -105,5 +128,7 @@
         android:layout_height="wrap_content"
         android:text="The basal metabolic rate (BMR) is the amount of energy needed while resting in a temperate environment when the digestive system is inactive. It is the equivalent of figuring out how much gas an idle car consumes while parked. "
         android:textSize="14sp" />
+
+
 
 </LinearLayout>

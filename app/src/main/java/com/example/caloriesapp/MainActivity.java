@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         Paper.init(this);
 
-
+        //open login activity
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        //open the register activity
         joinNowButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
         String UserPasswordKey = Paper.book().read(Prevalent.UserPasswordKey);
 
+        //check if the user is check the remember me button to login again automatic
         if (UserPhoneKey != "" && UserPasswordKey != "") {
             if (!TextUtils.isEmpty(UserPhoneKey) && !TextUtils.isEmpty(UserPasswordKey)) {
                 AllowAccess(UserPhoneKey, UserPasswordKey);
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    //check if the user exist in database and his credentials are correct
     private void AllowAccess(final String phone, final String password) {
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();

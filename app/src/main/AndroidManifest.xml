@@ -26,7 +26,7 @@
             android:name=".CategoriesActivity"
             android:exported="false" />
         <activity
-            android:name=".BmiActivity"
+            android:name=".BmrActivity"
             android:exported="false" />
         <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".Admin.AdminMaintainProductsActivity" />
@@ -36,7 +36,7 @@
         <activity android:name=".ConfirmFinalOrderActivity" />
         <activity android:name=".CartActivity" />
         <activity android:name=".ProductDetailsActivity" />
-        <activity android:name=".SettinsActivity" />
+        <activity android:name=".SettingsActivity" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"

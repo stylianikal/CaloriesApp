@@ -63,6 +63,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        //open the reset password activity
         ForgetPasswordLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -73,6 +74,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        //set up the ui for an admin and not
         AdminLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,6 +101,7 @@ public class LoginActivity extends AppCompatActivity {
         String phone = InputPhoneNumber.getText().toString();
         String password = InputPassword.getText().toString();
 
+        //check the edittext if is not empty
         if (TextUtils.isEmpty(phone)) {
             Toast.makeText(this, "Please write your phone number...", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(password)) {
@@ -109,12 +112,11 @@ public class LoginActivity extends AppCompatActivity {
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();
 
-
             AllowAccessToAccount(phone, password);
         }
     }
 
-
+    //get the user's current phone and password if checked remember me
     private void AllowAccessToAccount(final String phone, final String password) {
         if (chkBoxRememberMe.isChecked()) {
             Paper.book().write(Prevalent.UserPhoneKey, phone);
@@ -132,6 +134,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (dataSnapshot.child(parentDbName).child(phone).exists()) {
                     Users usersData = dataSnapshot.child(parentDbName).child(phone).getValue(Users.class);
 
+                    //check if this phone exists in firebase to login
                     if (usersData.getPhone().equals(phone)) {
                         if (usersData.getPassword().equals(password)) {
                             if (parentDbName.equals("Admins")) {

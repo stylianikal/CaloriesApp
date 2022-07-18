@@ -10,7 +10,8 @@
     <HorizontalScrollView
         android:id="@+id/r9"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        tools:ignore="SpeakableTextPresentCheck">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,51 +22,51 @@
                 android:id="@+id/meats_category"
                 android:layout_width="100dp"
                 android:layout_height="90dp"
-                android:src="@drawable/meat"/>
+                android:src="@drawable/meat" />
 
             <ImageView
                 android:id="@+id/fish_category"
                 android:layout_width="100dp"
                 android:layout_height="90dp"
                 android:layout_toRightOf="@+id/meats_category"
-                android:src="@drawable/fish"/>
+                android:src="@drawable/fish" />
 
             <ImageView
                 android:id="@+id/dairy_category"
                 android:layout_width="100dp"
                 android:layout_height="90dp"
-                android:src="@drawable/dairy"/>
+                android:src="@drawable/dairy" />
 
             <ImageView
                 android:id="@+id/vegies_category"
                 android:layout_width="100dp"
                 android:layout_height="90dp"
-                android:src="@drawable/vegies"/>
+                android:src="@drawable/vegies" />
 
             <ImageView
                 android:id="@+id/fruits_category"
                 android:layout_width="100dp"
                 android:layout_height="90dp"
-                android:src="@drawable/fruits"/>
+                android:src="@drawable/fruits" />
 
             <ImageView
                 android:id="@+id/bread_category"
                 android:layout_width="100dp"
                 android:layout_height="90dp"
                 android:layout_toRightOf="@+id/meats_category"
-                android:src="@drawable/bread"/>
+                android:src="@drawable/bread" />
 
             <ImageView
                 android:id="@+id/cables_category"
                 android:layout_width="100dp"
                 android:layout_height="90dp"
-                android:src="@drawable/shoess"/>
+                android:src="@drawable/shoess" />
 
             <ImageView
                 android:id="@+id/consoles_category"
                 android:layout_width="100dp"
                 android:layout_height="90dp"
-                android:src="@drawable/glasses"/>
+                android:src="@drawable/glasses" />
 
 
         </LinearLayout>
@@ -76,8 +77,6 @@
         android:id="@+id/category_products_checklist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/r9"
-        >
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_below="@+id/r9"></androidx.recyclerview.widget.RecyclerView>
 
 </RelativeLayout>

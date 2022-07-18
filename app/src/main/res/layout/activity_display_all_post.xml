@@ -31,8 +31,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="176dp"
-        android:layout_marginEnd="179dp"
+        android:layout_marginStart="159dp"
+        android:layout_marginEnd="164dp"
+        android:backgroundTint="@color/purple_500"
+        android:scaleType="centerCrop"
         app:srcCompat="@android:drawable/ic_menu_add"
         tools:ignore="SpeakableTextPresentCheck" />
 </RelativeLayout>

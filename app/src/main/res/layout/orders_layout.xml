@@ -90,7 +90,7 @@
             android:layout_marginRight="20dp"
             android:background="@android:color/white"
             android:text="Show This Order Products"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/black"
             android:textSize="18dp" />
 
     </RelativeLayout>

@@ -24,9 +24,10 @@
             android:background="@android:color/white"
             android:hint="Product Name"
             android:padding="9dp"
-            android:textColorHint="@color/colorPrimaryDark"
+            android:textColorHint="@color/black"
             android:textSize="18dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <Button
             android:id="@+id/search_btn"

@@ -4,6 +4,7 @@ public class Users
 {
     private String name, phone, password, image, address;
 
+    //constructor
     public Users()
     {
 
@@ -17,6 +18,7 @@ public class Users
         this.address = address;
     }
 
+    //get and set method for each field
 
     public String getName() {
         return name;

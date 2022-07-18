@@ -5,9 +5,9 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_bmi"
+            android:id="@+id/nav_bmr"
             android:icon="?attr/actionModePasteDrawable"
-            android:title="BMI" />
+            android:title="BMR" />
         <item
             android:id="@+id/nav_cart"
             android:icon="@drawable/nav_cart"

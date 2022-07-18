@@ -1,5 +1,6 @@
 package com.example.caloriesapp.Model;
 
+//class of posts
 public class Posts {
     public String date;
     public String description;
@@ -9,6 +10,7 @@ public class Posts {
     public String profileimage;
     public String time;
 
+    //constructor
     public Posts(){
 
     }
@@ -23,6 +25,7 @@ public class Posts {
         this.time = time;
     }
 
+    //get and set method for each field
     public String getProfileimage() {
         return profileimage;
     }

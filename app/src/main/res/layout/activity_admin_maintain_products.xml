@@ -29,40 +29,49 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/product_image_maintain"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/input_design"
             android:hint="Product Name"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18dp"
             android:padding="12dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/input_design"/>
+            android:textAlignment="center"
+            android:textColor="@color/purple_500"
+            android:textSize="18dp" />
 
         <EditText
             android:id="@+id/product_calories_maintain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/product_name_maintain"
-            android:hint="Product Price"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/input_design"
+            android:hint="Product Calories"
             android:padding="12dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/input_design"/>
+            android:textAlignment="center"
+            android:textColor="@color/purple_500"
+            android:textSize="18dp" />
 
         <EditText
             android:id="@+id/product_description_maintain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/product_calories_maintain"
-            android:layout_marginTop="2dp"
-            android:hint="Product Description"
-            android:textAlignment="center"
-            android:padding="12dp"
-            android:layout_margin="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
             android:background="@drawable/input_design"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="16dp" />
+            android:hint="Product Description"
+            android:padding="12dp"
+            android:textAlignment="center"
+            android:textColor="@color/purple_500"
+            android:textSize="16dp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <Button
             android:id="@+id/apply_changes_btn"

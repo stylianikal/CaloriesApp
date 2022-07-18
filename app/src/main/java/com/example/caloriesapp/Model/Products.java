@@ -4,6 +4,8 @@ public class Products
 {
     private String pname, description, calories, image, category, pid, date, time, result;
 
+    //constructor
+
     public Products()
     {
 
@@ -21,6 +23,7 @@ public class Products
         this.result = result;
     }
 
+    //get and set method for each field
 
     public String getPname() {
         return pname;

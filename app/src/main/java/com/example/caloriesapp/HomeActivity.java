@@ -193,7 +193,8 @@ public class HomeActivity extends AppCompatActivity
     }
 
 
-
+    //navigation bar
+    //set up on click listeners for each iitem
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item)
@@ -209,11 +210,11 @@ public class HomeActivity extends AppCompatActivity
                 startActivity(intent);
             }
         }
-        else if (id == R.id.nav_bmi)
+        else if (id == R.id.nav_bmr)
         {
             if (!type.equals("Admin"))
             {
-                Intent intent = new Intent(HomeActivity.this, BmiActivity.class);
+                Intent intent = new Intent(HomeActivity.this, BmrActivity.class);
                 startActivity(intent);
             }
         }
@@ -237,7 +238,7 @@ public class HomeActivity extends AppCompatActivity
         {
             if (!type.equals("Admin"))
             {
-                Intent intent = new Intent(HomeActivity.this, SettinsActivity.class);
+                Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
                 startActivity(intent);
             }
         }

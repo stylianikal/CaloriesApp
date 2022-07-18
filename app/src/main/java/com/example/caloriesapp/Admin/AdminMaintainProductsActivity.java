@@ -64,12 +64,12 @@ public class AdminMaintainProductsActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                deleteThisPoduct();
+                deleteThisProduct();
             }
         });
     }
-
-    private void deleteThisPoduct()
+    //method to delete a product
+    private void deleteThisProduct()
     {
         productRef.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -84,13 +84,14 @@ public class AdminMaintainProductsActivity extends AppCompatActivity
         });
     }
 
-
+    //method to save the new product's informations
     private void applyChanges()
     {
         String pName = name.getText().toString();
         String pCalories = calories.getText().toString();
         String pDescription = description.getText().toString();
-        
+
+        //check the fields if is not empty
         if (pName.equals(""))
         {
             Toast.makeText(this, "Write down Product Name", Toast.LENGTH_SHORT).show();
@@ -105,6 +106,7 @@ public class AdminMaintainProductsActivity extends AppCompatActivity
         }
         else
         {
+            //edit informations about an existing product
             HashMap<String, Object> productMap = new HashMap<>();
             productMap.put("pid", productID);
             productMap.put("description", pDescription);
@@ -128,7 +130,7 @@ public class AdminMaintainProductsActivity extends AppCompatActivity
         }
     }
 
-
+    //display details about specific product
     private void displaySpecificProductInfo()
     {
         productRef.addValueEventListener(new ValueEventListener() {

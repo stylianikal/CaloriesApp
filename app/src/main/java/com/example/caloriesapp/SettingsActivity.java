@@ -33,7 +33,7 @@ import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class SettinsActivity extends AppCompatActivity
+public class SettingsActivity extends AppCompatActivity
 {
     private CircleImageView profileImageView;
     private EditText fullNameEditText, userPhoneEditText, addressEditText;
@@ -51,7 +51,7 @@ public class SettinsActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settins);
+        setContentView(R.layout.activity_settings);
 
         storageProfilePrictureRef = FirebaseStorage.getInstance().getReference().child("Profile pictures");
 
@@ -79,7 +79,7 @@ public class SettinsActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(SettinsActivity.this, ResetPasswordActivity.class);
+                Intent intent = new Intent(SettingsActivity.this, ResetPasswordActivity.class);
                 intent.putExtra("check", "settings");
                 startActivity(intent);
             }
@@ -109,13 +109,13 @@ public class SettinsActivity extends AppCompatActivity
 
                 CropImage.activity(imageUri)
                         .setAspectRatio(1, 1)
-                        .start(SettinsActivity.this);
+                        .start(SettingsActivity.this);
             }
         });
     }
 
 
-
+    //update user's informations
     private void updateOnlyUserInfo()
     {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
@@ -126,8 +126,8 @@ public class SettinsActivity extends AppCompatActivity
         userMap. put("phoneOrder", userPhoneEditText.getText().toString());
         ref.child(Prevalent.currentOnlineUser.getPhone()).updateChildren(userMap);
 
-        startActivity(new Intent(SettinsActivity.this, HomeActivity.class));
-        Toast.makeText(SettinsActivity.this, "Profile Info update successfully.", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(SettingsActivity.this, HomeActivity.class));
+        Toast.makeText(SettingsActivity.this, "Profile Info update successfully.", Toast.LENGTH_SHORT).show();
         finish();
     }
 
@@ -148,14 +148,14 @@ public class SettinsActivity extends AppCompatActivity
         {
             Toast.makeText(this, "Error, Try Again.", Toast.LENGTH_SHORT).show();
 
-            startActivity(new Intent(SettinsActivity.this, SettinsActivity.class));
+            startActivity(new Intent(SettingsActivity.this, SettingsActivity.class));
             finish();
         }
     }
 
 
 
-
+    //check if edittext are not empty
     private void userInfoSaved()
     {
         if (TextUtils.isEmpty(fullNameEditText.getText().toString()))
@@ -177,7 +177,7 @@ public class SettinsActivity extends AppCompatActivity
     }
 
 
-
+    //upload image and save data to database
     private void uploadImage()
     {
         final ProgressDialog progressDialog = new ProgressDialog(this);
@@ -225,14 +225,14 @@ public class SettinsActivity extends AppCompatActivity
 
                                 progressDialog.dismiss();
 
-                                startActivity(new Intent(SettinsActivity.this, HomeActivity.class));
-                                Toast.makeText(SettinsActivity.this, "Profile Info update successfully.", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(SettingsActivity.this, HomeActivity.class));
+                                Toast.makeText(SettingsActivity.this, "Profile Info update successfully.", Toast.LENGTH_SHORT).show();
                                 finish();
                             }
                             else
                             {
                                 progressDialog.dismiss();
-                                Toast.makeText(SettinsActivity.this, "Error.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SettingsActivity.this, "Error.", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -244,6 +244,7 @@ public class SettinsActivity extends AppCompatActivity
     }
 
 
+    //display the current informantions about user
     private void userInfoDisplay(final CircleImageView profileImageView, final EditText fullNameEditText, final EditText userPhoneEditText, final EditText addressEditText)
     {
         DatabaseReference UsersRef = FirebaseDatabase.getInstance().getReference().child("Users").child(Prevalent.currentOnlineUser.getPhone());

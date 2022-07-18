@@ -4,6 +4,7 @@ public class Cart
 {
     private String pid, name, calories, quantity, discount, result;
 
+    //constructor
     public Cart() {
     }
 
@@ -16,6 +17,7 @@ public class Cart
         this.result = result;
     }
 
+    //get and set method for each field
     public String getPid() {
         return pid;
     }

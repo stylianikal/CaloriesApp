@@ -59,23 +59,12 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
         InputProductCalories = (EditText) findViewById(R.id.product_calories);
         loadingBar = new ProgressDialog(this);
 
-        InputProductImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                OpenGallery();
-            }
-        });
+        InputProductImage.setOnClickListener(view -> OpenGallery());
 
-        AddNewProductButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                ValidateProductData();
-            }
-        });
+        AddNewProductButton.setOnClickListener(view -> ValidateProductData());
     }
 
+    //open gallery to choose image for product
     private void OpenGallery()
     {
         Intent galleryIntent = new Intent();
@@ -84,7 +73,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
         startActivityForResult(galleryIntent, GalleryPick);
     }
 
-
+    //get image uri
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
@@ -96,7 +85,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
             InputProductImage.setImageURI(ImageUri);
         }
     }
-
+    //check the field if are correct and not empty
     private void ValidateProductData()
     {
         Description = InputProductDescription.getText().toString();
@@ -135,9 +124,11 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
 
         Calendar calendar = Calendar.getInstance();
 
+        //get  current date
         SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
         saveCurrentDate = currentDate.format(calendar.getTime());
 
+        //get current time
         SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
         saveCurrentTime = currentTime.format(calendar.getTime());
         productRandomKey = saveCurrentDate + saveCurrentTime;
@@ -177,6 +168,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
                     {
                         if (task.isSuccessful())
                         {
+                            //get the url for image
                             downloadImageUrl = task.getResult().toString();
 
                             Toast.makeText(AdminAddNewProductActivity.this, "got the Product image Url Successfully...", Toast.LENGTH_SHORT).show();
@@ -188,7 +180,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
             }
         });
     }
-
+    //save product informations to firebase
     private void SaveProductInfoToDatabase()
     {
         HashMap<String, Object> productMap = new HashMap<>();

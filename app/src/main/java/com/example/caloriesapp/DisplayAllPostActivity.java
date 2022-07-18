@@ -33,6 +33,7 @@ public class DisplayAllPostActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_all_post);
         imageview = (ImageView) findViewById(R.id.post_image);
@@ -40,8 +41,6 @@ public class DisplayAllPostActivity extends AppCompatActivity {
         userRef = FirebaseDatabase.getInstance().getReference().child("Users");
         mtoolbar = (Toolbar) findViewById(R.id.toolbar_post);
         open_addpost = (ImageButton) findViewById(R.id.Open_add_new_post);
-        //setSupportActionBar(mtoolbar);
-
 
 
         postList = (RecyclerView) findViewById(R.id.all_users_post_list);
@@ -51,6 +50,7 @@ public class DisplayAllPostActivity extends AppCompatActivity {
         linearLayoutManager.setStackFromEnd(true);
         postList.setLayoutManager(linearLayoutManager);
 
+        //oepn PostActivity to add new post
         open_addpost.setOnClickListener(v -> {
             Intent intent = new Intent(DisplayAllPostActivity.this, PostActivity.class);
             startActivity(intent);
@@ -60,6 +60,7 @@ public class DisplayAllPostActivity extends AppCompatActivity {
 
     }
 
+    //method to display all post in a recycler view
     private void DisplayAllUsersPost() {
         FirebaseRecyclerOptions<Posts> options = new FirebaseRecyclerOptions.Builder<Posts> ()
                 .setQuery(postRef, Posts.class)
@@ -79,10 +80,6 @@ public class DisplayAllPostActivity extends AppCompatActivity {
                 postsViewHolder.setTime(posts.getTime());
                 postsViewHolder.setDate(posts.getDate());
                 postsViewHolder.setDescription(posts.getDescription());
-                //postsViewHolder.setPostImage(getApplicationContext(), posts.getPostimage());
-
-                 //postsViewHolder.setPostImage(posts.getPostimage());
-                //Picasso.get().load(model.getImage()).into(holder.imageView);
                 Picasso.get().load(posts.getPostimage()).into(postsViewHolder.setPostImage(posts.getPostimage()));
                 Picasso.get().load(posts.getProfileimage()).into(postsViewHolder.setProfileImage(posts.getProfileimage()));
                 postsViewHolder.setPostImage(posts.getPostimage());
@@ -92,6 +89,7 @@ public class DisplayAllPostActivity extends AppCompatActivity {
         postList.setAdapter(adapter);
         adapter.startListening();
     }
+    //set the information to show for each post (fullname, date, time , picture and description
     public static class PostsViewHolder extends RecyclerView.ViewHolder{
         View mview;
         public PostsViewHolder(@NonNull View itemView) {
@@ -119,15 +117,13 @@ public class DisplayAllPostActivity extends AppCompatActivity {
             Picasso.get().load(postpostimage).into(postpostImage);
             return postpostImage;
 
-            //Picasso.get().load(postimage).into(postImage);
-            //Picasso.get().load(posts.getPostimage()).into(postsViewHolder.)
+
         }
         public ImageView setProfileImage(String postprofileimage){
             ImageView profileImage = (ImageView) mview.findViewById(R.id.post_profile_image);
             Picasso.get().load(postprofileimage).into(profileImage);
             return profileImage;
-            //Picasso.get().load(postimage).into(postImage);
-            //Picasso.get().load(posts.getPostimage()).into(postsViewHolder.)
+
         }
 
     }

@@ -55,6 +55,7 @@ public class AdminUserProductsActivity extends AppCompatActivity
                 .setQuery(cartListRef, Cart.class)
                 .build();
 
+        //recycler view ti show all products (image,calories and quantity)
         FirebaseRecyclerAdapter<Cart, CartViewHolder> adapter = new FirebaseRecyclerAdapter<Cart, CartViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull CartViewHolder holder, int position, @NonNull Cart model)
@@ -75,6 +76,7 @@ public class AdminUserProductsActivity extends AppCompatActivity
             }
         };
 
+        //set adapter
         productsList.setAdapter(adapter);
         adapter.startListening();
     }

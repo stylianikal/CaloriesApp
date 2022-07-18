@@ -72,7 +72,7 @@ public class PostActivity extends AppCompatActivity {
         updatepostbutton.setOnClickListener(v -> ValidatepostInfo());
 
     }
-    //open phone gallery to pick a picture
+    //open phone gallery to choose an image
     private void OpenGallery(){
         Intent galleryintent = new Intent();
         galleryintent.setAction(Intent.ACTION_GET_CONTENT);
@@ -80,6 +80,7 @@ public class PostActivity extends AppCompatActivity {
         startActivityForResult(galleryintent,  Gallery_Pick);
     }
 
+    //check if description and image are not empty
     private void ValidatepostInfo(){
         Description = postdescription.getText().toString();
         if (imageUri == null){
@@ -98,6 +99,7 @@ public class PostActivity extends AppCompatActivity {
 
     }
 
+    //save image to firestore and the url of image to save to current post
     private void StoringImagetoFirebaseStorage() {
 
         //get current date
@@ -130,24 +132,6 @@ public class PostActivity extends AppCompatActivity {
                     myUrl = downloadurl.toString();
 
 
-
-//        filepath.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-//                if (task.isSuccessful()){
-//                    downloadurl = imageUri.toString();
-                            //task.getResult().getUploadSessionUri().toString();
-                            //getResult().getMetadata().getReference().getDownloadUrl().toString();
-                            //task.getResult().getStorage().getDownloadUrl().toString();
-                //getUploadSessionUri().toString();
-                            //imageUri.toString();
-                    //downloadurl =filepath.getDownloadUrl().toString();
-                    //downloadurl= filepath.getDownloadUrl().toString();
-
-                    //task.getResult().getMetadata().getReference().getDownloadUrl().toString();
-
-                            //().getUploadSessionUri().toString();
-
                     Toast.makeText(PostActivity.this, "image uploaded successfully to storage", Toast.LENGTH_SHORT).show();
                     SavingPostInformation();}
                 else
@@ -162,6 +146,7 @@ public class PostActivity extends AppCompatActivity {
 
     }
 
+    //save post's informations to firebase
     private void SavingPostInformation(){
         String phone = Prevalent.currentOnlineUser.getPhone();
 

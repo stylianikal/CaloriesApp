@@ -4,6 +4,8 @@ public class AdminOrders
 {
     private String name, phone, address, city, state, date, time, totalAmount, result;
 
+    //constructor
+
     public AdminOrders() {
     }
 
@@ -19,6 +21,7 @@ public class AdminOrders
         this.result = result;
     }
 
+    //get and set method for each field
     public String getName() {
         return name;
     }

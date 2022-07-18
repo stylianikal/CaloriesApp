@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,6 +28,7 @@ public class RegisterActivity extends AppCompatActivity
     private Button CreateAccountButton;
     private EditText InputName, InputPhoneNumber, InputPassword;
     private ProgressDialog loadingBar;
+    FirebaseAuth mAuth;
 
 
     @Override
@@ -41,6 +43,7 @@ public class RegisterActivity extends AppCompatActivity
         InputPassword = (EditText) findViewById(R.id.register_password_input);
         InputPhoneNumber = (EditText) findViewById(R.id.register_phone_number_input);
         loadingBar = new ProgressDialog(this);
+        mAuth =FirebaseAuth.getInstance();
 
 
         CreateAccountButton.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +56,7 @@ public class RegisterActivity extends AppCompatActivity
     }
 
 
-
+    //check the fiels if is not empty
     private void CreateAccount()
     {
         String name = InputName.getText().toString();
@@ -84,7 +87,7 @@ public class RegisterActivity extends AppCompatActivity
     }
 
 
-
+    //check if phone exists and save the use's  data to firebase
     private void ValidatephoneNumber(final String name, final String phone, final String password)
     {
         final DatabaseReference RootRef;
