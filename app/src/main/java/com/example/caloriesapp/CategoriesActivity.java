@@ -50,6 +50,7 @@ public class CategoriesActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
+
         meats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
@@ -112,6 +113,15 @@ public class CategoriesActivity extends AppCompatActivity {
                                 holder.txtProductCalories.setText("Calories = " + model.getCalories() + "Cal");
                                 Picasso.get().load(model.getImage()).into(holder.imageView);
 
+                                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(CategoriesActivity.this, ProductDetailsActivity.class);
+                                        intent.putExtra("pid", model.getPid());
+                                        startActivity(intent);
+                                    }
+                                });
+
                             }
 
                             @NonNull
@@ -148,6 +158,14 @@ public class CategoriesActivity extends AppCompatActivity {
                                 holder.txtProductCalories.setText("Calories = " + model.getCalories() + "Cal");
                                 Picasso.get().load(model.getImage()).into(holder.imageView);
 
+                                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(CategoriesActivity.this, ProductDetailsActivity.class);
+                                        intent.putExtra("pid", model.getPid());
+                                        startActivity(intent);
+                                    }
+                                });
                             }
 
                             @NonNull
@@ -183,6 +201,15 @@ public class CategoriesActivity extends AppCompatActivity {
                                 holder.txtProductDescription.setText(model.getDescription());
                                 holder.txtProductCalories.setText("Calories = " + model.getCalories() + "Cal");
                                 Picasso.get().load(model.getImage()).into(holder.imageView);
+
+                                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(CategoriesActivity.this, ProductDetailsActivity.class);
+                                        intent.putExtra("pid", model.getPid());
+                                        startActivity(intent);
+                                    }
+                                });
 
                             }
 
@@ -220,6 +247,15 @@ public class CategoriesActivity extends AppCompatActivity {
                                 holder.txtProductCalories.setText("Calories = " + model.getCalories() + "Cal");
                                 Picasso.get().load(model.getImage()).into(holder.imageView);
 
+                                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(CategoriesActivity.this, ProductDetailsActivity.class);
+                                        intent.putExtra("pid", model.getPid());
+                                        startActivity(intent);
+                                    }
+                                });
+
                             }
 
                             @NonNull
@@ -255,6 +291,15 @@ public class CategoriesActivity extends AppCompatActivity {
                                 holder.txtProductDescription.setText(model.getDescription());
                                 holder.txtProductCalories.setText("Calories = " + model.getCalories() + "Cal");
                                 Picasso.get().load(model.getImage()).into(holder.imageView);
+
+                                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(CategoriesActivity.this, ProductDetailsActivity.class);
+                                        intent.putExtra("pid", model.getPid());
+                                        startActivity(intent);
+                                    }
+                                });
 
                             }
 

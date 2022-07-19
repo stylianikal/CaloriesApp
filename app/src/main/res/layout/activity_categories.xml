@@ -34,6 +34,7 @@
             <ImageView
                 android:id="@+id/dairy_category"
                 android:layout_width="100dp"
+                android:layout_toRightOf="@+id/fish_category"
                 android:layout_height="90dp"
                 android:src="@drawable/dairy" />
 
@@ -41,11 +42,13 @@
                 android:id="@+id/vegies_category"
                 android:layout_width="100dp"
                 android:layout_height="90dp"
+                android:layout_toRightOf="@+id/dairy_category"
                 android:src="@drawable/vegies" />
 
             <ImageView
                 android:id="@+id/fruits_category"
                 android:layout_width="100dp"
+                android:layout_toRightOf="@+id/vegies_category"
                 android:layout_height="90dp"
                 android:src="@drawable/fruits" />
 
@@ -53,12 +56,13 @@
                 android:id="@+id/bread_category"
                 android:layout_width="100dp"
                 android:layout_height="90dp"
-                android:layout_toRightOf="@+id/meats_category"
+                android:layout_toRightOf="@+id/fruits_category"
                 android:src="@drawable/bread" />
 
             <ImageView
                 android:id="@+id/sweets_category"
                 android:layout_width="100dp"
+                android:layout_toRightOf="@+id/bread_category"
                 android:layout_height="90dp"
                 android:src="@drawable/sweets" />
 

@@ -65,7 +65,6 @@ public class AdminCategoryActivity extends AppCompatActivity
         vegies = (ImageView) findViewById(R.id.vegies);
 
         fruits = (ImageView) findViewById(R.id.fruits);
-//        bread = (ImageView) findViewById(R.id.bread);
         bread = (ImageView) findViewById(R.id.bread);
         sweets = (ImageView) findViewById(R.id.sweets);
 
@@ -132,17 +131,6 @@ public class AdminCategoryActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
-
-
-//        bread.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view)
-//            {
-//                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
-//                intent.putExtra("category", "bread");
-//                startActivity(intent);
-//            }
-//        });
 
 
 

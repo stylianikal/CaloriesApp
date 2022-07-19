@@ -33,7 +33,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
     private ImageView productImage;
     private ElegantNumberButton numberButton;
     private TextView productCalories, productDescription, productName;
-    private String productID ="", state = "Normal";
+    private String productID ="", dairyplan = "Normal";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +55,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                if (state.equals("Daily calculation Yes") || state.equals("Daily calculation No"))
+                if (dairyplan.equals("Daily calculation Yes") || dairyplan.equals("Daily calculation No"))
                 {
                     Toast.makeText(ProductDetailsActivity.this, "you can add again your food tomorrow", Toast.LENGTH_LONG).show();
                 }
@@ -67,12 +67,6 @@ public class ProductDetailsActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        ChechOrderState();
-    }
 
     private void addingToCartList()
     {
@@ -94,7 +88,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         cartMap.put("date", saveCurrentDate);
         cartMap.put("time", saveCurrentTime);
         cartMap.put("quantity", numberButton.getNumber());
-        cartMap.put("discount", "");
+
 
         cartListRef.child("User View").child(Prevalent.currentOnlineUser.getPhone())
                 .child("Products").child(productID)
@@ -150,35 +144,5 @@ public class ProductDetailsActivity extends AppCompatActivity {
     }
 
 
-    private void ChechOrderState()
-    {
-        DatabaseReference orderRef;
-        orderRef = FirebaseDatabase.getInstance().getReference()
-                .child("Orders")
-                .child(Prevalent.currentOnlineUser.getPhone());
 
-        orderRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists())
-                {
-                    String shippingState = dataSnapshot.child("state").getValue().toString();
-                    if (shippingState.equals("yes"))
-                    {
-                        state = "Daily calculation Yes";
-                    }
-                    else if (shippingState.equals("no"))
-                    {
-                        state = "Daily calculation No";
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError)
-            {
-
-            }
-        });
-    }
 }
