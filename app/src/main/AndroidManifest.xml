@@ -17,35 +17,44 @@
         android:theme="@style/Theme.CaloriesApp"
         tools:replace="android:theme">
         <activity
-            android:name=".DisplayAllPostActivity"
+            android:name=".Activities.Gymplan3Activity"
             android:exported="false" />
         <activity
-            android:name=".PostActivity"
+            android:name=".Activities.Gymplan2Activity"
             android:exported="false" />
         <activity
-            android:name=".CategoriesActivity"
+            android:name=".Activities.Gymplan1Activity"
             android:exported="false" />
         <activity
-            android:name=".BmrActivity"
+            android:name=".Activities.DisplayAllPostActivity"
             android:exported="false" />
-        <activity android:name=".ResetPasswordActivity" />
+        <activity
+            android:name=".Activities.PostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.CategoriesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.BmrActivity"
+            android:exported="false" />
+        <activity android:name=".Activities.ResetPasswordActivity" />
         <activity android:name=".Admin.AdminMaintainProductsActivity" />
-        <activity android:name=".SearchProductsActivity" />
+        <activity android:name=".Activities.SearchProductsActivity" />
         <activity android:name=".Admin.AdminUserProductsActivity" />
         <activity android:name=".Admin.AdminNewPlans" />
-        <activity android:name=".ConfirmFinalPlanActivity" />
-        <activity android:name=".CartActivity" />
-        <activity android:name=".ProductDetailsActivity" />
-        <activity android:name=".SettingsActivity" />
+        <activity android:name=".Activities.ConfirmFinalPlanActivity" />
+        <activity android:name=".Activities.CartActivity" />
+        <activity android:name=".Activities.ProductDetailsActivity" />
+        <activity android:name=".Activities.SettingsActivity" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".Activities.HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.CaloriesApp.NoActionBar" />
         <activity android:name=".Admin.AdminCategoryActivity" />
         <activity android:name=".Admin.AdminAddNewProductActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.RegisterActivity" />
+        <activity android:name=".Activities.LoginActivity" />
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -55,6 +64,10 @@
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

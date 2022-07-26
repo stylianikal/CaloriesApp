@@ -8,8 +8,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.caloriesapp.HomeActivity;
-import com.example.caloriesapp.MainActivity;
+import com.example.caloriesapp.Activities.HomeActivity;
+import com.example.caloriesapp.Activities.MainActivity;
 import com.example.caloriesapp.R;
 
 public class AdminCategoryActivity extends AppCompatActivity
@@ -17,7 +17,7 @@ public class AdminCategoryActivity extends AppCompatActivity
     private ImageView meats, fish, dairy, vegies, sweets;
     private ImageView fruits, bread;
 
-    private Button LogoutBtn, CheckOrdersBtn, maintainProductsBtn;
+    private Button LogoutBtn, CheckPlansBtn, maintainProductsBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -26,7 +26,7 @@ public class AdminCategoryActivity extends AppCompatActivity
         setContentView(R.layout.activity_admin_category);
 
         LogoutBtn = (Button) findViewById(R.id.admin_logout_btn);
-        CheckOrdersBtn = (Button) findViewById(R.id.check_orders_btn);
+        CheckPlansBtn = (Button) findViewById(R.id.check_plans_btn);
         maintainProductsBtn = (Button) findViewById(R.id.maintain_btn);
 
         maintainProductsBtn.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +50,7 @@ public class AdminCategoryActivity extends AppCompatActivity
             }
         });
 
-        CheckOrdersBtn.setOnClickListener(new View.OnClickListener() {
+        CheckPlansBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {

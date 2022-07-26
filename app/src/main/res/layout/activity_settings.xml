@@ -5,7 +5,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsActivity">
+    tools:context=".Activities.SettingsActivity">
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="339dp"
+        android:layout_marginBottom="345dp"
+        android:text="Andress" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="348dp"
+        android:layout_marginBottom="496dp"
+        android:text="Phone" />
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_settings"
@@ -17,7 +37,7 @@
             android:id="@+id/toolbar_settings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/purple_500">
+            android:background="@color/teal_700">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -124,9 +144,19 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
-        android:background="@color/purple_500"
+        android:background="@drawable/buttons"
         android:padding="10dp"
         android:text="Set Security Questions"
         android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="97dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="295dp"
+        android:layout_marginBottom="419dp"
+        android:text="Full name" />
 
 </RelativeLayout>

@@ -5,46 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_start"
-    tools:context=".MainActivity">
+    tools:context=".Activities.MainActivity">
 
 
     <Button
         android:id="@+id/main_login_btn"
-        android:layout_width="243dp"
-        android:layout_height="89dp"
+        android:layout_width="214dp"
+        android:layout_height="80dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/buttons"
+        android:background="@color/teal_700"
+        android:fontFamily="serif"
         android:padding="20dp"
         android:text="Already have an Account? Login"
         android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintHorizontal_bias="0.406"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.658" />
+        app:layout_constraintVertical_bias="0.705"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/main_join_now_btn"
-        android:layout_width="239dp"
-        android:layout_height="84dp"
+        android:layout_width="209dp"
+        android:layout_height="71dp"
         android:layout_above="@+id/main_login_btn"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:background="@drawable/buttons"
+        android:background="@color/teal_700"
+        android:fontFamily="serif"
         android:padding="20dp"
         android:text="Join Now"
         android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.258"
+        app:layout_constraintHorizontal_bias="0.396"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/textView3"
@@ -55,9 +61,10 @@
         android:text="Welcome to daily plan application"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.966" />
+        app:layout_constraintVertical_bias="0.983" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

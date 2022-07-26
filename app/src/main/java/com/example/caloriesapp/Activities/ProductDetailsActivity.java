@@ -1,4 +1,4 @@
-package com.example.caloriesapp;
+package com.example.caloriesapp.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.caloriesapp.Model.Products;
 import com.example.caloriesapp.Prevalent.Prevalent;
+import com.example.caloriesapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;

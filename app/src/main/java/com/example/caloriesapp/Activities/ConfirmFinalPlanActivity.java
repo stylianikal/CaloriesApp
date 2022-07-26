@@ -1,4 +1,4 @@
-package com.example.caloriesapp;
+package com.example.caloriesapp.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.caloriesapp.Prevalent.Prevalent;
+import com.example.caloriesapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
@@ -93,6 +94,7 @@ public class ConfirmFinalPlanActivity extends AppCompatActivity {
         ordersMap.put("email", EmailEditText.getText().toString());
         ordersMap.put("date", saveCurrentDate);
         ordersMap.put("time", saveCurrentTime);
+        ordersMap.put("todayplan", "yes");
 
 
         ordersRef.updateChildren(ordersMap).addOnCompleteListener(new OnCompleteListener<Void>() {

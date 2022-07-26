@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProductDetailsActivity"
+    tools:context=".Activities.ProductDetailsActivity"
     >
 
     <ImageView
@@ -59,7 +59,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:elevation="6dp"
-        app:backGroundColor="@color/purple_500"
+        app:backGroundColor="@color/teal_700"
         app:finalNumber="10"
         app:initialNumber="1"
         app:textSize="16dp"></com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
@@ -73,7 +73,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
-        android:background="@color/purple_500"
+        android:background="@drawable/buttons"
         android:text="Add to Cart"
         android:textColor="@color/white"
         android:textSize="18dp" />

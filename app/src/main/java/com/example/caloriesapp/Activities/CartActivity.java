@@ -1,4 +1,4 @@
-package com.example.caloriesapp;
+package com.example.caloriesapp.Activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.caloriesapp.Model.Cart;
 import com.example.caloriesapp.Prevalent.Prevalent;
+import com.example.caloriesapp.R;
 import com.example.caloriesapp.ViewHolder.CartViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -162,7 +163,7 @@ public class CartActivity extends AppCompatActivity {
     {
         DatabaseReference orderRef;
         orderRef = FirebaseDatabase.getInstance().getReference()
-                .child("Orders")
+                .child("Plans")
                 .child(Prevalent.currentOnlineUser.getPhone());
 
         orderRef.addValueEventListener(new ValueEventListener() {
@@ -171,10 +172,10 @@ public class CartActivity extends AppCompatActivity {
             {
                 if (dataSnapshot.exists())
                 {
-                    String shippingState = dataSnapshot.child("state").getValue().toString();
+                    String Todayplan = dataSnapshot.child("todayplan").getValue().toString();
                     String userName = dataSnapshot.child("name").getValue().toString();
 
-                    if (shippingState.equals("yes"))
+                    if (Todayplan.equals("no"))
                     {
                         txtTotalAmount.setText("Dear " + userName + "\n plan is saved successfully");
                         recyclerView.setVisibility(View.GONE);
@@ -185,7 +186,7 @@ public class CartActivity extends AppCompatActivity {
 
                         Toast.makeText(CartActivity.this, "you can daily calculate, tomorrow", Toast.LENGTH_SHORT).show();
                     }
-                    else if (shippingState.equals("no"))
+                    else if (Todayplan.equals("yes"))
                     {
                         txtTotalAmount.setText("Daily calculation = yes");
                         recyclerView.setVisibility(View.GONE);

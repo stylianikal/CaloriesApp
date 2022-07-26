@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConfirmFinalPlanActivity">
+    tools:context=".Activities.ConfirmFinalPlanActivity">
 
     <TextView
         android:id="@+id/txt"
@@ -17,7 +17,7 @@
         android:layout_marginBottom="25dp"
         android:text="Please write your details about your daily plan"
         android:textAlignment="center"
-        android:textColor="@color/purple_500"
+        android:textColor="@color/black"
         android:textSize="10dp"
         android:textStyle="bold" />
 
@@ -64,7 +64,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:background="@color/purple_500"
+        android:background="@drawable/buttons"
         android:text="Confirm"
         android:textColor="@android:color/white"
         android:textSize="20dp" />

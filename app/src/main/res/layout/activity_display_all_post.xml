@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DisplayAllPostActivity">
+    tools:context=".Activities.DisplayAllPostActivity">
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -19,22 +19,18 @@
         android:id="@+id/toolbar_post"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@color/teal_700"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
 
         tools:ignore="MissingClass" />
 
-    <ImageButton
+    <Button
         android:id="@+id/Open_add_new_post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="159dp"
-        android:layout_marginEnd="164dp"
-        android:backgroundTint="@color/purple_500"
-        android:scaleType="centerCrop"
-        app:srcCompat="@android:drawable/ic_menu_add"
-        tools:ignore="SpeakableTextPresentCheck" />
+        android:layout_marginEnd="146dp"
+        android:gravity="center_horizontal"
+        android:text="Add New Post" />
 </RelativeLayout>

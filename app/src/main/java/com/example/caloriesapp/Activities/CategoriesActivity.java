@@ -1,4 +1,4 @@
-package com.example.caloriesapp;
+package com.example.caloriesapp.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.caloriesapp.Model.Products;
+import com.example.caloriesapp.R;
 import com.example.caloriesapp.ViewHolder.ProductViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;

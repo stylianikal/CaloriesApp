@@ -56,7 +56,7 @@ public class AdminNewPlans extends AppCompatActivity
                     {
                         holder.userName.setText("Name: " + model.getName());
                         holder.userPhoneNumber.setText("Phone: " + model.getPhone());
-                        holder.userTotalCalories.setText("Total Calories= Cal" + model.getTotalAmount());
+                        holder.userTotalCalories.setText("Total Calories= " + model.getTotalCalories());
                         holder.userDataTime.setText("Plan at: " + model.getDate() + "  " + model.getTime());
                         holder.userEmailAddress.setText("Email: " + model.getEmail() );
 

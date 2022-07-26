@@ -1,22 +1,22 @@
-package com.example.caloriesapp;
+package com.example.caloriesapp.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
 import com.example.caloriesapp.Model.Posts;
+import com.example.caloriesapp.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -25,7 +25,7 @@ import com.squareup.picasso.Picasso;
 
 public class DisplayAllPostActivity extends AppCompatActivity {
     private RecyclerView postList;
-    private ImageButton open_addpost;
+    private Button openadd;
     private ImageView imageview;
     private Toolbar mtoolbar;
 
@@ -40,7 +40,7 @@ public class DisplayAllPostActivity extends AppCompatActivity {
         postRef = FirebaseDatabase.getInstance().getReference().child("Posts");
         userRef = FirebaseDatabase.getInstance().getReference().child("Users");
         mtoolbar = (Toolbar) findViewById(R.id.toolbar_post);
-        open_addpost = (ImageButton) findViewById(R.id.Open_add_new_post);
+        openadd = (Button) findViewById(R.id.Open_add_new_post);
 
 
         postList = (RecyclerView) findViewById(R.id.all_users_post_list);
@@ -51,7 +51,7 @@ public class DisplayAllPostActivity extends AppCompatActivity {
         postList.setLayoutManager(linearLayoutManager);
 
         //oepn PostActivity to add new post
-        open_addpost.setOnClickListener(v -> {
+        openadd.setOnClickListener(v -> {
             Intent intent = new Intent(DisplayAllPostActivity.this, PostActivity.class);
             startActivity(intent);
             finish();

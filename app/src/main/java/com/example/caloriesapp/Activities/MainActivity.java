@@ -1,4 +1,4 @@
-package com.example.caloriesapp;
+package com.example.caloriesapp.Activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.caloriesapp.Model.Users;
 import com.example.caloriesapp.Prevalent.Prevalent;
+import com.example.caloriesapp.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

@@ -2,20 +2,20 @@ package com.example.caloriesapp.Model;
 
 public class AdminPlans
 {
-    private String name, phone, email, date, time, totalAmount, result;
+    private String name, phone, email, date, time, totalCalories, result;
 
     //constructor
 
     public AdminPlans() {
     }
 
-    public AdminPlans(String name, String phone, String email, String date, String time, String totalAmount, String result) {
+    public AdminPlans(String name, String phone, String email, String date, String time, String totalCalories, String result) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.date = date;
         this.time = time;
-        this.totalAmount = totalAmount;
+        this.totalCalories = totalCalories;
         this.result = result;
     }
 
@@ -61,12 +61,12 @@ public class AdminPlans
         this.time = time;
     }
 
-    public String getTotalAmount() {
-        return totalAmount;
+    public String getTotalCalories() {
+        return totalCalories;
     }
 
-    public void setTotalAmount(String totalAmount) {
-        this.totalAmount = totalAmount;
+    public void setTotalCalories(String totalCalories) {
+        this.totalCalories = totalCalories;
     }
 
     public String getResult() {

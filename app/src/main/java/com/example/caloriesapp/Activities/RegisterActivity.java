@@ -1,4 +1,4 @@
-package com.example.caloriesapp;
+package com.example.caloriesapp.Activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.caloriesapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,6 +23,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity
 {
@@ -75,6 +78,12 @@ public class RegisterActivity extends AppCompatActivity
         {
             Toast.makeText(this, "Please write your password...", Toast.LENGTH_SHORT).show();
         }
+        else if(phone.length() != 10 && !phone.matches("^69[0,9]{8}$")){
+            Toast.makeText(this, "Not Valid phone, must be at least 10 characters and starts with 69", Toast.LENGTH_SHORT).show();
+        }
+        else if(password.length()<8 && !isValidPassword(password)){
+            Toast.makeText(this, "Not Valid password, must be at least 8 characters with numbers ,symbols", Toast.LENGTH_SHORT).show();
+        }
         else
         {
             loadingBar.setTitle("Create Account");
@@ -84,6 +93,18 @@ public class RegisterActivity extends AppCompatActivity
 
             ValidatephoneNumber(name, phone, password);
         }
+    }
+    //validation for password
+    public static boolean isValidPassword(final String password) {
+
+        Pattern pattern;
+        Matcher matcher;
+        final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
+        pattern = Pattern.compile(PASSWORD_PATTERN);
+        matcher = pattern.matcher(password);
+
+        return matcher.matches();
+
     }
 
 
